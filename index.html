@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stratford Preparatory Robotics</title>
-    <img src="https://siteimages.bnck-12.com/static/vbm/provider_imgs/10699-logo.png"
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -26,6 +26,16 @@
             text-align: center;
             color: white;
             animation: fadeIn 1.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        header img {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 20px;
         }
 
         header h1 {
@@ -104,16 +114,17 @@
             font-weight: 600;
             background-color: #f8bf03;
             color: white;
-            border-radius: 30px;
+            border-radius: 50px;
             text-decoration: none;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.2s ease;
             margin-top: 20px;
         } 
         
 
         .btn:hover {
-            background-color: #ff9800;
-        }
+    background-color: #ffeb3b; 
+    color: #333; 
+    box-shadow: 0 0 10px rgba(255, 235, 59, 0.8); 
 
         @keyframes fadeIn {
             0% {
@@ -139,7 +150,8 @@
 <body>
 
     <header>
-        <h1>Stratford Robotics</h1>
+        <image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhtz3qCXSGcJUix1P2nY2NRJvHNbckwabtJg&s" alt="Stratford Prep Logo">
+        <h1>Stratford Preparatory Robotics</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
