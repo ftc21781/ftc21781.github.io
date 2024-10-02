@@ -16,10 +16,11 @@
             font-family: 'Poppins', sans-serif;
             background: #f0f0f0;
             color: #333;
+            overflow-x: hidden;
         }
 
         header {
-            background: linear-gradient(45deg, #007BFF, #c80000);
+            background: linear-gradient(45deg, #f8bf03, #c80000);
             padding: 30px;
             text-align: center;
             color: white;
@@ -27,9 +28,10 @@
         }
 
         header h1 {
-            font-size: 3rem;
-            letter-spacing: 3px;
+            font-size: 4rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
+            margin-bottom: 10px;
         }
 
         nav ul {
@@ -47,19 +49,24 @@
             color: white;
             text-decoration: none;
             font-size: 1.2rem;
-            transition: color 0.3s ease;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         nav ul li a:hover {
-            color: #000000;
+            color: #ffeb3b;
         }
 
         section {
-            padding: 50px;
+            padding: 80px 20px;
             background: white;
             text-align: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            margin: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin: 40px auto;
+            max-width: 800px;
+            border-radius: 10px;
             animation: slideIn 1s ease-in-out;
         }
 
@@ -80,13 +87,31 @@
             padding: 20px;
             text-align: center;
             color: white;
-            position: fixed;
-            width: 100%;
+            position: relative;
             bottom: 0;
+            width: 100%;
         }
 
         footer p {
             font-size: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            background-color: #f8bf03;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        } 
+        
+
+        .btn:hover {
+            background-color: #ff9800;
         }
 
         @keyframes fadeIn {
@@ -101,9 +126,11 @@
         @keyframes slideIn {
             0% {
                 transform: translateY(100%);
+                opacity: 0;
             }
             100% {
                 transform: translateY(0);
+                opacity: 1;
             }
         }
     </style>
@@ -114,24 +141,18 @@
         <h1>Stratford Robotics</h1>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <section>
-        <h2>About Us </h2>
-        <p>We are the FTC robotics team from Stratford Preparatory, a group of passionate students dedicated to exploring the exciting world of robotics and technology. Our team works together to design, build, and program robots for FIRST Tech Challenge competitions. We combine creativity, problem-solving skills, and teamwork to tackle new challenges each season. Through our robotics journey, we're not just building machines – we're developing critical thinking skills, learning about engineering principles, and preparing for future careers in STEM fields. Join us as we innovate, compete, and grow together in the fast-paced world of competitive robotics!
-
-        </p>
-    </section>
-
-    <section>
-        <h2>Our Team</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam facilisis est, et ultricies felis fringilla vel. Nulla non felis ac purus feugiat ultricies non in sem.</p>
+        <h2>Welcome to FTC #21781's Website!</h2>
+        <p>Stratford Robotics is a dedicated team of students striving for excellence in the field of robotics. Explore our projects, meet our team, and stay updated with our latest news.</p>
+        <a href="projects.html" class="btn">Explore Projects</a>
     </section>
 
     <footer>
