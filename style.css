@@ -160,3 +160,14 @@ cursor: none;
 a:hover ~ .custom-cursor {
 background-color: #000;
 }
+
+::selection {
+    background-color:burlywood; /* Custom background color for highlight */
+    color: white; /* Custom text color when highlighted */
+}
+
+/* For Mozilla Firefox (which uses a different pseudo-element) */
+::-moz-selection {
+    background-color: burlywood; /* Custom background color for highlight */
+    color: white; /* Custom text color when highlighted */
+}
