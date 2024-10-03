@@ -19,11 +19,11 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 header h1 {
     margin: 0;
+    margin-bottom: 10px; /* Add some space between the header and nav */
 }
 
 header nav ul {
