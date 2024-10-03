@@ -5,10 +5,12 @@
 }
 
 body {
+    cursor: none;
     font-family: 'Poppins', sans-serif;
     background: #f0f0f0;
     color: #333;
     overflow-x: hidden;
+  
 }
 
 header {
@@ -96,7 +98,9 @@ footer {
 footer p {
     font-size: 1rem;
 }
-
+hover  {
+cursor: none;
+}
 .btn {
 display: inline-block;
 padding: 10px 30px;
@@ -137,19 +141,47 @@ margin-top: 20px;
         opacity: 1;
     }
 }
+/* Custom cursor styling */
 .custom-cursor {
-width: 30px;
-height: 30px;
-border: 2px solid #000;
-border-radius: 50%;
-position: absolute;
-pointer-events: none;
-transform: translate(-50%, -50%);
-transition: transform 0.1s ease, background-color 0.3s ease;
-z-index: 1000;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, background-color 0.3s ease;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.2); /* Light background for visibility */
 }
 
-/* Add hover effect for links */
-a:hover ~ .custom-cursor {
-background-color: #000;
+/* Define the pulsating animation */
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2); /* Slightly larger */
+    }
+    100% {
+        transform: scale(1); /* Back to original size */
+    }
 }
+
+/* When hovering over a link, apply the pulsating animation */
+.custom-cursor.pulsate {
+    animation: pulsate 0.6s infinite; /* Pulse every 0.6s */
+    background-color: rgba(0, 0, 0, 0.5); /* Darken the custom cursor */
+}
+
+::selection {
+    background-color: burlywood; /* Custom background color for highlight */
+    color: black; /* Custom text color when highlighted */
+}
+
+/* Optional: Styles for highlighted text on Mozilla Firefox (which uses a different pseudo-element) */
+::-moz-selection {
+    background-color: burlywood; /* Custom background color for highlight */
+    color: black; /* Custom text color when highlighted */
+}
+
