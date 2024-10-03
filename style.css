@@ -146,14 +146,14 @@ cursor: none;
 .custom-cursor {
     width: 30px;
     height: 30px;
-    border: 2px solid yellow;
+    border: 2px solid rgb(13, 13, 12);
     border-radius: 50%;
     position: absolute;
     pointer-events: none;
     transform: translate(-50%, -50%);
     transition: transform 0.1s ease, background-color 0.3s ease;
     z-index: 1000;
-    background-color: red; /* Light background for visibility */
+    background-color: rgb(41, 11, 173); /* Light background for visibility */
 }
 
 /* Define the pulsating animation */
