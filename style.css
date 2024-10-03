@@ -112,12 +112,12 @@ margin-top: 20px;
 }
 
 .btn:hover {
-    background-color: #ffffff; /* Orange background on hover */
+    background-color: #ff9800; /* Orange background on hover */
     box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.8); /* Stronger white glow effect */
     color: white; /* Ensure text stays white */
 }
 
-
+    
 
 @keyframes fadeIn {
     0% {
