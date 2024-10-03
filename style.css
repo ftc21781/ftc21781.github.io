@@ -172,8 +172,11 @@ cursor: none;
 /* When hovering over a link, apply the pulsating animation */
 .custom-cursor.pulsate {
     animation: pulsate 0.6s infinite; /* Pulse every 0.6s */
-    background-color: rgba(0, 0, 0, 0.5); /* Darken the custom cursor */
+    background-color: orange (0, 0, 0, 0.5); /* Darken the custom cursor */
 }
+
+
+
 ::selection {
     background-color:burlywood; /* Custom background color for highlight */
     color: white; /* Custom text color when highlighted */
