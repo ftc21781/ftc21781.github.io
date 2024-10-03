@@ -1,4 +1,5 @@
 * {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -17,28 +18,138 @@ header {
     color: white;
     animation: fadeIn 1.5s ease-in-out;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+
+header img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 20px;
 }
 
 header h1 {
-    margin: 0;
-    margin-bottom: 10px; /* Add some space between the header and nav */
+    font-size: 4rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
-header nav ul {
-    list-style: none;
-    padding: 0;
+nav ul {
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    list-style-type: none;
+    margin-top: 20px;
 }
 
-header nav ul li {
-    display: inline;
+nav ul li {
+    margin: 0 20px;
+    color: white;
 }
 
-header nav ul li a {
+nav ul li a {
     color: white;
     text-decoration: none;
+    font-size: 1.2rem;
     font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: black ;
+}
+section {   
+    padding: 80px 20px;
+    background: white;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.1);
+    margin: 40px auto;
+    max-width: 800px;
+    border-radius: 10px;
+    animation: slideIn 1s ease-in-out;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #007BFF;
+}
+
+section p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+footer {
+    background: #007BFF;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+.btn {
+display: inline-block;
+padding: 10px 30px;
+font-size: 1.2rem;
+font-weight: 600;
+background-color: #0313f8;
+color: white;
+border-radius: 50px;
+text-decoration: none;
+transition: background-color 0.2s ease, box-shadow 0.2s ease;
+margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #070707; /* Orange background on hover */
+    box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.8); /* Stronger white glow effect */
+    color: white; /* Ensure text stays white */
+}
+
+    
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.custom-cursor {
+width: 30px;
+height: 30px;
+border: 2px solid #000;
+border-radius: 50%;
+position: absolute;
+pointer-events: none;
+transform: translate(-50%, -50%);
+transition: transform 0.1s ease, background-color 0.3s ease;
+z-index: 1000;
+}
+
+/* Add hover effect for links */
+a:hover ~ .custom-cursor {
+background-color: #000;
 }
