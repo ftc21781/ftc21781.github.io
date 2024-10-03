@@ -154,3 +154,13 @@ footer p {
 a:hover ~ .custom-cursor {
     background-color: #000;
 }
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 3rem; /* Adjust for smaller screens */
+    }
+    section h2 {
+        font-size: 2rem; /* Adjust for smaller screens */
+    }
+}
+
