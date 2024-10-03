@@ -20,8 +20,8 @@ header {
     color: white;
     animation: fadeIn 1.5s ease-in-out;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center horizontally */
 }
 
 header img {
@@ -41,7 +41,8 @@ nav ul {
     display: flex;
     justify-content: center;
     list-style-type: none;
-    margin-top: 20px;
+    margin: 20px 0; /* Optional: Adjust as needed */
+    padding: 0; /* Remove any default padding */
 }
 
 nav ul li {
@@ -60,8 +61,9 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: black ;
+    color: black;
 }
+
 section {   
     padding: 80px 20px;
     background: white;
@@ -102,25 +104,23 @@ hover  {
 cursor: none;
 }
 .btn {
-display: inline-block;
-padding: 10px 30px;
-font-size: 1.2rem;
-font-weight: 600;
-background-color: #0313f8;
-color: white;
-border-radius: 50px;
-text-decoration: none;
-transition: background-color 0.2s ease, box-shadow 0.2s ease;
-margin-top: 20px;
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: #0313f8;
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 20px;
 }
 
 .btn:hover {
-    background-color: #070707; /* Orange background on hover */
+    background-color: #070707; /* Dark background on hover */
     box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.8); /* Stronger white glow effect */
     color: white; /* Ensure text stays white */
 }
-
-    
 
 @keyframes fadeIn {
     0% {
@@ -142,46 +142,21 @@ margin-top: 20px;
     }
 }
 /* Custom cursor styling */
+
 .custom-cursor {
-    width: 30px;
-    height: 30px;
-    border: 2px solid #000;
-    border-radius: 50%;
-    position: absolute;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease, background-color 0.3s ease;
-    z-index: 1000;
+        width: 30px;
+        height: 30px;
+        border: 2px solid #000;
+        border-radius: 50%;
+        position: absolute;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transition: transform 0.1s ease, background-color 0.3s ease;
+        z-index: 1000;
     background-color: rgba(0, 0, 0, 0.2); /* Light background for visibility */
 }
 
-/* Define the pulsating animation */
-@keyframes pulsate {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.2); /* Slightly larger */
-    }
-    100% {
-        transform: scale(1); /* Back to original size */
-    }
+/* Add hover effect for links */
+a:hover ~ .custom-cursor {
+background-color: #000;
 }
-
-/* When hovering over a link, apply the pulsating animation */
-.custom-cursor.pulsate {
-    animation: pulsate 0.6s infinite; /* Pulse every 0.6s */
-    background-color: rgba(0, 0, 0, 0.5); /* Darken the custom cursor */
-}
-
-::selection {
-    background-color: burlywood; /* Custom background color for highlight */
-    color: black; /* Custom text color when highlighted */
-}
-
-/* Optional: Styles for highlighted text on Mozilla Firefox (which uses a different pseudo-element) */
-::-moz-selection {
-    background-color: burlywood; /* Custom background color for highlight */
-    color: black; /* Custom text color when highlighted */
-}
-
