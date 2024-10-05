@@ -113,7 +113,38 @@
             width: auto; /* Allows the width to adjust automatically to preserve the aspect ratio */
             object-fit: contain; /* Ensures the image fits within the specified dimensions */
         }
-    </style>
+
+    /* Enhanced button styling */
+    .pageclip-form__submit {
+        display: inline-block;
+        width: 100%;
+        background-color: #4CAF50; /* Green background */
+        color: white; /* White text */
+        padding: 12px 20px; /* Padding */
+        border: none; /* Remove default border */
+        border-radius: 25px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor */
+        font-size: 16px; /* Increase font size */
+        text-align: center; /* Center the text */
+        font-weight: 600; /* Bold text */
+        transition: background-color 0.3s ease; /* Smooth transition */
+    }
+
+    /* Hover effect */
+    .pageclip-form__submit:hover {
+        background-color: #45a049; /* Slightly darker green on hover */
+    }
+
+    /* Optional: Add some space around the button */
+    .pageclip-form__submit {
+        margin-top: 15px;
+    }
+
+    /* Spinner inside button (Pageclip default styling) */
+    .pageclip-form__submit span {
+        display: inline-block;
+    }
+</style>
 </head>
 <body>
 
