@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
     <script src="script.js" defer></script>
     <title>Stratford Preparatory Robotics</title>
     <style>
@@ -14,13 +15,13 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         /* Ensure body and html occupy the full width and height */
         html, body {
             width: 100%;
             height: 100%;
         }
-        
+
         /* Styling for the header to cover full width and look like the screenshot */
         header {
             background: linear-gradient(to right, #ff3c00, #7200ca); /* Match gradient colors */
@@ -112,7 +113,6 @@
             width: auto; /* Allows the width to adjust automatically to preserve the aspect ratio */
             object-fit: contain; /* Ensures the image fits within the specified dimensions */
         }
-
     </style>
 </head>
 <body>
@@ -134,24 +134,27 @@
 
     <div class="container">
         <h2>Contact Us</h2>
-        <form id="dataForm">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
+        <!-- Updated Pageclip Form Integration -->
+        <form action="https://send.pageclip.co/8BfDjgUi7jq7dRVecKpmLwvvPCpBTikp/contact-form" class="pageclip-form" method="post">
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" value="roscoe@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" value="A contact subject" required>
             </div>
             <div class="form-group">
                 <label for="message">Message</label>
                 <textarea id="message" name="message" required></textarea>
             </div>
-            <button type="submit" class="btn">Submit</button>
+            <button type="submit" class="pageclip-form__submit">
+                <span>Send</span>
+            </button>
         </form>
     </div>
 
-    <script src="submit.js"></script>
-
+    <!-- Pageclip Script -->
+    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
 </body>
 </html>
