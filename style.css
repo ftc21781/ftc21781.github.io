@@ -143,17 +143,21 @@ hover  {
 }
 /* Custom cursor styling */
 
+/* Custom cursor style */
 .custom-cursor {
+    position: absolute;
     width: 30px;
     height: 30px;
-    border: 2px solid rgb(13, 13, 12);
+    border: black 2px solid;
+    background-color: none; /* Example style for the custom cursor */
     border-radius: 50%;
-    position: absolute;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease, background-color 0.3s ease;
-    z-index: 1000;
-    background-color: rgb(41, 11, 173); /* Light background for visibility */
+    pointer-events: none; /* Ensure the custom cursor does not interfere with other elements */
+    z-index: 1000; /* Ensure the custom cursor is on top */
+}
+
+/* Ensure the default cursor is hidden over interactive elements */
+a, button, input {
+    cursor: none;
 }
 
 /* Define the pulsating animation */
@@ -173,12 +177,12 @@ hover  {
 .custom-cursor.pulsate {
     animation: pulsate 0.6s infinite; /* Pulse every 0.6s */
     background-color: #070abc;
-    background-color: rgba(7, 10, 188, 0.5); /* Darken the custom cursor */ (0, 0, 0, 0.5animation: pulsate 0.6s infinite; /* Pulse every 0.6s */
+    background-color:rgba(255,255,255); /* Darken the custom cursor */ (0, 0, 0, 0.5animation: pulsate 0.6s infinite; /* Pulse every 0.6s */
     /* Darken the custom cursor */); /* Darken the custom cursor */
 }
 
 .custom-cursor.pulsate {
-    background-color: rgba(7, 10, 188, 0.5);
+    background-color: transparent ;
 }
 
 
