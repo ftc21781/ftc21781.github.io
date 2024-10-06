@@ -24,20 +24,25 @@
         }
 
         main {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Aligns the content to the top of the main section */
+    padding-top: 50px; /* Adds space between the header and the typewriter text */
+}
 
-        .typewriter h2 {
-            display: inline-block;
-            border-right: 2px solid black;
-            white-space: nowrap;
-            overflow: hidden;
-            font-size: 24px;
-        }
+.typewriter h2 {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 24px;
+    border-right: 2px solid black;
+    padding: 0; /* Ensure there is no padding affecting the layout */
+    margin: 0; /* Prevent margin from adding space */
+    max-width: 100%; /* Ensures the typewriter stays within the screen width */
+}
+
 
         @keyframes blinkCaret {
             0%, 100% { border-color: transparent; }
@@ -80,7 +85,7 @@
             text-align: center;
             padding: 20px;
             font-size: 14px;
-            background-color: #f0f0f0;
+            background-color: #0c34a1;
             width: 100%;
         }
     </style>
