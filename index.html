@@ -7,8 +7,88 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel= "stylesheet" href="style.css">
     <script src="script.js" defer></script>
+
+    <style>
+        /* Flexbox Layout to keep footer at the bottom */
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            justify-content: space-between;
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Aligns the content to the top of the main section */
+            padding-top: 50px; /* Adds space between the header and the typewriter text */
+        }
+
+        .typewriter h2 {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 24px;
+            border-right: 2px solid black;
+            padding: 0; /* Ensure there is no padding affecting the layout */
+            margin: 0; /* Prevent margin from adding space */
+            max-width: 100%; /* Ensures the typewriter stays within the screen width */
+        }
+
+
+        @keyframes blinkCaret {
+            0%, 100% { border-color: transparent; }
+            50% { border-color: black; }
+        }
+
+        .typewriter h2 {
+            animation: blinkCaret 0.75s step-end infinite;
+        }
+
+        section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin-top: 30px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        section h2 {
+            font-size: 28px;
+            font-weight: 400;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            background-color: #0c34a1;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
 
@@ -22,19 +102,43 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="competitions.html">Competitions</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="leadership.html">Leadership</a></li>
         </ul>
     </nav>
 </header>
 
-<section>
-    <h2>Welcome to FTC #21781's Website!</h2>
-    <a href="competitions.html" class="btn">Competitions</a>
-</section>
+<main>
+    <section class="typewriter">
+        <h2 id="typing-text"></h2>
+    </section>
+</main>
 
 <footer>
     <p>&copy; 2024 Stratford Robotics | All Rights Reserved</p>
 </footer>
+
+<script>
+    const text = "Welcome to the official Stratford Robotics Website.";
+    let index = 0;
+
+    function typeWriter() {
+        if (index < text.length) {
+            document.getElementById("typing-text").textContent += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, 100); // Adjust speed here
+        }
+    }
+
+    window.onload = typeWriter;
+</script>
+
+<script type="text/javascript">
+    !function(t,e){t.artibotApi={l:[],t:[],on:function(){this.l.push(arguments)},trigger:function(){this.t.push(arguments)}};
+        var a=!1,i=e.createElement("script");i.async=!0,i.type="text/javascript",i.src="https://app.artibot.ai/loader.js",
+            e.getElementsByTagName("head").item(0).appendChild(i),i.onreadystatechange=i.onload=function(){
+            if(!(a||this.readyState&&"loaded"!=this.readyState&&"complete"!=this.readyState)){
+                new window.ArtiBot({i:"10ef0cca-ca56-4846-bfec-687b6d28d043"});a=!0}}}(window,document);
+</script>
 
 </body>
 </html>
