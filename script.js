@@ -165,3 +165,29 @@ function getCookie(name) {
     }
     return "";
 }
+
+function handleCreateAccount(e) {
+    e.preventDefault();
+    const specialCode = document.getElementById('special-code').value;
+    const newUsername = document.getElementById('new-username').value;
+    const newPassword = document.getElementById('new-password').value;
+
+    const teamSpecialCode = '1234';
+
+    if (specialCode === teamSpecialCode) {
+        const data = `Username: ${newUsername}, Password: ${newPassword}\n`;
+        const blob = new Blob([data], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'logininfo.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        alert('Account created successfully! You can now log in.');
+        createAccountForm.style.display = 'none';
+    } else {
+        alert('Invalid special code. Please try again.');
+    }
+}
