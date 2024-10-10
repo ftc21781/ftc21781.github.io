@@ -76,11 +76,11 @@ function handleLogin(e) {
     const storedPassword = getCookie(username);
 
     if (storedPassword && storedPassword === password) {
-        alert('Login successful!');
+        alert('Login successful.');
         setCookie("loggedIn", "true", 1);
         window.location.href = 'index.html';
     } else {
-        alert('Invalid username or password');
+        alert('Invalid username/password');
     }
 }
 
@@ -136,7 +136,7 @@ function handleCreateAccount(e) {
     if (specialCode === teamSpecialCode) {
         // Save the new account details (this is a simple example, in a real application you would save this to a database)
         setCookie(newUsername, newPassword, 365);
-        alert('Account created successfully! You can now log in.');
+        alert('Account created successfully. You can now log in.');
         createAccountForm.style.display = 'none';
     } else {
         alert('Invalid special code. Please try again.');
@@ -185,7 +185,7 @@ function handleCreateAccount(e) {
         a.click();
         document.body.removeChild(a);
 
-        alert('Account created successfully! You can now log in.');
+        alert('Account created successfully. You can now log in.');
         createAccountForm.style.display = 'none';
     } else {
         alert('Invalid special code. Please try again.');
