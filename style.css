@@ -104,22 +104,19 @@ hover  {
     cursor: none;
 }
 .btn {
-    display: inline-block;
-    padding: 10px 30px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    background-color: #0313f8;
+    background-color: #007BFF;
     color: white;
-    border-radius: 50px;
     text-decoration: none;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
-    margin-top: 20px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #070707; /* Dark background on hover */
-    box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.8); /* Stronger white glow effect */
-    color: white; /* Ensure text stays white */
+    background-color: #0056b3;
 }
 
 @keyframes fadeIn {
@@ -152,7 +149,7 @@ hover  {
     background-color: none; /* Example style for the custom cursor */
     border-radius: 50%;
     pointer-events: none; /* Ensure the custom cursor does not interfere with other elements */
-    z-index: 1000; /* Ensure the custom cursor is on top */
+    z-index: 100000; /* Ensure the custom cursor is on top */
 }
 
 /* Ensure the default cursor is hidden over interactive elements */
@@ -197,4 +194,63 @@ a, button, input {
 ::-moz-selection {
     background-color: burlywood; /* Custom background color for highlight */
     color: white; /* Custom text color when highlighted */
+}
+
+#login-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+}
+
+#login-form label {
+    font-weight: bold;
+}
+
+#login-form input {
+    padding: 8px;
+    font-size: 16px;
+}
+
+#login-form button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#login-form button:hover {
+    background-color: #0056b3;
+}
+
+header {
+    position: relative;
+}
+
+#profile-container {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    display: inline-block;
+    color: green;
+    z-index: 10000;
+}
+
+#profile-dropdown a:hover {
+    background-color:lightgrey;
+    z-index: 10000;
+}
+
+#create-account-btn {
+    margin-top: 20px; /* Adjust the value as needed */
 }

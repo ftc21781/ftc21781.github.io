@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+<header>
+    <div style="text-align: center;">
+        <img height="100" width="200" src="https://siteimages.bnck-12.com/static/vbm/provider_imgs/10699-logo.png" alt="Stratford Prep Logo">
+        <h1 style="font-size: 40px; margin: 10px 0;">Stratford Preparatory Robotics</h1>
+    </div>
+    <nav>
+        <ul style="list-style: none; display: flex; justify-content: center; gap: 20px;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="competitions.html">Competitions</a></li>
+            <li><a href="leadership.html">Leadership</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section id="login-section">
+        <h2>Login (For Team Members ONLY)</h2>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">Login</button>
+        </form>
+        <button id="create-account-btn" class="btn" >Create Account</button>
+        <form id="create-account-form" style="display: none;">
+            <label for="special-code">Special Code:</label>
+            <input type="text" id="special-code" name="special-code" required>
+            <br>
+            <label for="new-username">New Username:</label>
+            <input type="text" id="new-username" name="new-username" required>
+            <br>
+            <label for="new-password">New Password:</label>
+            <input type="password" id="new-password" name="new-password" required>
+            <br>
+            <button type="submit">Create Account</button>
+        </form>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2024 Stratford Robotics | All Rights Reserved</p>
+</footer>
+</body>
+</html>
