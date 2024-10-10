@@ -10,7 +10,6 @@ body {
     background: #f0f0f0;
     color: #333;
     overflow-x: hidden;
-
 }
 
 header {
@@ -22,6 +21,7 @@ header {
     display: flex;
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center horizontally */
+    position: relative; /* Ensures login link positioning works */
 }
 
 header img {
@@ -100,9 +100,11 @@ footer {
 footer p {
     font-size: 1rem;
 }
-hover  {
+
+.hover  {
     cursor: none;
 }
+
 .btn {
     background-color: #007BFF;
     color: white;
@@ -138,18 +140,17 @@ hover  {
         opacity: 1;
     }
 }
-/* Custom cursor styling */
 
-/* Custom cursor style */
+/* Custom cursor styling */
 .custom-cursor {
     position: absolute;
     width: 30px;
     height: 30px;
     border: black 2px solid;
-    background-color: none; /* Example style for the custom cursor */
+    background-color: none;
     border-radius: 50%;
-    pointer-events: none; /* Ensure the custom cursor does not interfere with other elements */
-    z-index: 100000; /* Ensure the custom cursor is on top */
+    pointer-events: none;
+    z-index: 100000;
 }
 
 /* Ensure the default cursor is hidden over interactive elements */
@@ -170,30 +171,20 @@ a, button, input {
     }
 }
 
-/* When hovering over a link, apply the pulsating animation */
 .custom-cursor.pulsate {
-    animation: pulsate 0.6s infinite; /* Pulse every 0.6s */
-    background-color: #070abc;
-    background-color:rgba(255,255,255); /* Darken the custom cursor */ (0, 0, 0, 0.5animation: pulsate 0.6s infinite; /* Pulse every 0.6s */
-    /* Darken the custom cursor */); /* Darken the custom cursor */
+    animation: pulsate 0.6s infinite;
+    background-color: transparent;
 }
-
-.custom-cursor.pulsate {
-    background-color: transparent ;
-}
-
-/* Explosion effect */
-/* Explosion effect */
 
 ::selection {
-    background-color:burlywood; /* Custom background color for highlight */
-    color: white; /* Custom text color when highlighted */
+    background-color: burlywood;
+    color: white;
 }
 
-/* For Mozilla Firefox (which uses a different pseudo-element) */
+/* For Mozilla Firefox */
 ::-moz-selection {
-    background-color: burlywood; /* Custom background color for highlight */
-    color: white; /* Custom text color when highlighted */
+    background-color: burlywood;
+    color: white;
 }
 
 #login-section {
@@ -233,10 +224,6 @@ a, button, input {
     background-color: #0056b3;
 }
 
-header {
-    position: relative;
-}
-
 #profile-container {
     position: absolute;
     top: 50px;
@@ -247,10 +234,22 @@ header {
 }
 
 #profile-dropdown a:hover {
-    background-color:lightgrey;
+    background-color: lightgrey;
     z-index: 10000;
 }
 
 #create-account-btn {
-    margin-top: 20px; /* Adjust the value as needed */
+    margin-top: 20px;
+}
+
+/* Updated login link color */
+header .login-link,
+header .login-link:visited,
+header .login-link:hover,
+header .login-link:active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    color: black !important; /* Forces the text color to black */
 }
