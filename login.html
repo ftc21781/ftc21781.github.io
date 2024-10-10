@@ -4,7 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        #login-section {
+            text-align: center;
+            margin: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        #login-form {
+            margin-bottom: 20px;
+        }
+
+        #login-form button, 
+        #create-account-form button {
+            width: 100%;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: 18px;
+        }
+    </style>
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -14,7 +63,7 @@
         <h1 style="font-size: 40px; margin: 10px 0;">Stratford Preparatory Robotics</h1>
     </div>
     <nav>
-        <ul style="list-style: none; display: flex; justify-content: center; gap: 20px;">
+        <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="competitions.html">Competitions</a></li>
@@ -30,29 +79,21 @@
         <form id="login-form">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
-            <br>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-            <br>
             <button type="submit">Login</button>
         </form>
-        <button id="create-account-btn" class="btn" >Create Account</button>
+        <button id="create-account-btn" class="btn">Create Account</button>
         <form id="create-account-form" style="display: none;">
             <label for="special-code">Special Code:</label>
             <input type="text" id="special-code" name="special-code" required>
-            <br>
             <label for="new-username">New Username:</label>
             <input type="text" id="new-username" name="new-username" required>
-            <br>
             <label for="new-password">New Password:</label>
             <input type="password" id="new-password" name="new-password" required>
-            <br>
             <button type="submit">Create Account</button>
         </form>
     </section>
 </main>
-<footer>
-    <p>&copy; 2024 Stratford Robotics | All Rights Reserved</p>
-</footer>
 </body>
 </html>
