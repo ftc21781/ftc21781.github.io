@@ -59,10 +59,15 @@ document.addEventListener('DOMContentLoaded', function () {
 function checkLoginStatus() {
     const profileContainer = document.getElementById('profile-container');
     const loginLink = document.querySelector('nav ul li a[href="login.html"]');
+    const usernameDisplay = document.getElementById('username-display'); // Add an element in your HTML for this
 
-    if (getCookie("loggedIn") === "true") {
+    const loggedIn = getCookie("loggedIn");
+    const username = getCookie("username"); // Get the username from the cookie
+
+    if (loggedIn === "true") {
         if (profileContainer) profileContainer.style.display = 'inline-block';
         if (loginLink) loginLink.style.display = 'none';
+        if (usernameDisplay) usernameDisplay.textContent = `Logged in as: ${username}`; // Display the username
     } else {
         if (profileContainer) profileContainer.style.display = 'none';
         if (loginLink) loginLink.style.display = 'inline-block';
@@ -78,6 +83,7 @@ function handleLogin(e) {
     if (storedPassword && storedPassword === password) {
         alert('Login successful.');
         setCookie("loggedIn", "true", 1);
+        setCookie("username", username, 1); // Store username in a cookie
         window.location.href = 'index.html';
     } else {
         alert('Invalid username/password');
@@ -86,6 +92,7 @@ function handleLogin(e) {
 
 function handleLogout() {
     setCookie("loggedIn", "", -1);
+    setCookie("username", "", -1); // Clear the username cookie
     window.location.href = 'index.html';
 }
 
@@ -143,29 +150,6 @@ function handleCreateAccount(e) {
     }
 }
 
-function setCookie(name, value, days) {
-    const date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    const expires = "expires=" + date.toUTCString();
-    document.cookie = name + "=" + value + ";" + expires + ";path=/";
-}
-
-function getCookie(name) {
-    const cname = name + "=";
-    const decodedCookie = decodeURIComponent(document.cookie);
-    const ca = decodedCookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(cname) === 0) {
-            return c.substring(cname.length, c.length);
-        }
-    }
-    return "";
-}
-
 function handleCreateAccount(e) {
     e.preventDefault();
     const specialCode = document.getElementById('special-code').value;
@@ -175,28 +159,19 @@ function handleCreateAccount(e) {
     const teamSpecialCode = '1234';
 
     if (specialCode === teamSpecialCode) {
-        setCookie('username', newUsername, 7);
-        setCookie('password', newPassword, 7);
-        alert('Account created successfully!');
+        const data = `Username: ${newUsername}, Password: ${newPassword}\n`;
+        const blob = new Blob([data], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'logininfo.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        alert('Account created successfully. You can now log in.');
+        createAccountForm.style.display = 'none';
     } else {
-        alert('Invalid special code.');
+        alert('Invalid special code. Please try again.');
     }
 }
-
-function handleLogin(e) {
-    e.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    const storedUsername = getCookie('username');
-    const storedPassword = getCookie('password');
-
-    if (username === storedUsername && password === storedPassword) {
-        alert('Login successful!');
-    } else {
-        alert('Invalid username or password.');
-    }
-}
-
-document.getElementById('create-account-form').addEventListener('submit', handleCreateAccount);
-document.getElementById('login-form').addEventListener('submit', handleLogin);
