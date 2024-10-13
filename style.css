@@ -387,5 +387,15 @@ header .login-link:active {
     text-decoration: underline;    /* Add underline */
 }
 
+#username-display {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-weight: bold;
+    color: black;
+    font-size: 18px;
+    z-index: 1000; /* Ensures it stays above other elements */
+}
+
 
 
