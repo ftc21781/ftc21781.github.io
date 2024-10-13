@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function checkLoginStatus() {
     const profileContainer = document.getElementById('profile-container');
     const loginLink = document.querySelector('nav ul li a[href="login.html"]');
-    const usernameDisplay = document.getElementById('profile-username'); // Update for correct username element
+    const usernameDisplay = document.getElementById('username-display'); // Corrected element ID
 
     const loggedIn = getCookie("loggedIn");
     const username = getCookie("username"); // Get the username from the cookie
@@ -90,12 +90,13 @@ function checkLoginStatus() {
     if (loggedIn === "true") {
         if (profileContainer) profileContainer.style.display = 'inline-block';
         if (loginLink) loginLink.style.display = 'none';
-        if (usernameDisplay) usernameDisplay.textContent = `Logged in as: ${username}`; // Display the username
+        if (usernameDisplay) usernameDisplay.textContent = username; // Display the username correctly
     } else {
         if (profileContainer) profileContainer.style.display = 'none';
         if (loginLink) loginLink.style.display = 'inline-block';
     }
 }
+
 
 function handleLogin(e) {
     e.preventDefault();
