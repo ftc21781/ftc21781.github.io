@@ -175,19 +175,28 @@ function handleCreateAccount(e) {
     const teamSpecialCode = '1234';
 
     if (specialCode === teamSpecialCode) {
-        const data = `Username: ${newUsername}, Password: ${newPassword}\n`;
-        const blob = new Blob([data], { type: 'text/plain' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'logininfo.txt';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-
-        alert('Account created successfully. You can now log in.');
-        createAccountForm.style.display = 'none';
+        setCookie('username', newUsername, 7);
+        setCookie('password', newPassword, 7);
+        alert('Account created successfully!');
     } else {
-        alert('Invalid special code. Please try again.');
+        alert('Invalid special code.');
     }
 }
+
+function handleLogin(e) {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    const storedUsername = getCookie('username');
+    const storedPassword = getCookie('password');
+
+    if (username === storedUsername && password === storedPassword) {
+        alert('Login successful!');
+    } else {
+        alert('Invalid username or password.');
+    }
+}
+
+document.getElementById('create-account-form').addEventListener('submit', handleCreateAccount);
+document.getElementById('login-form').addEventListener('submit', handleLogin);
