@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 <header>
@@ -15,13 +14,14 @@
         <h1 style="font-size: 40px; margin: 10px 0;">Stratford Preparatory Robotics</h1>
     </div>
     <nav>
-        <ul>
+        <ul class="nav-list">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="competitions.html">Competitions</a></li>
             <li><a href="leadership.html">Leadership</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li class="login-link"><a href="login.html">Login</a></li>
+        </ul>
     </nav>
 </header>
 <main>
@@ -45,6 +45,18 @@
             <button type="submit">Create Account</button>
         </form>
     </section>
+    <div id="profile-container" style="display: none;">
+        <img id="profile-photo" src="profile-photo-url.jpg" alt="Profile Photo" style="width: 50px; height: 50px; border-radius: 50%;">
+        <span id="profile-username"></span>
+    </div>
 </main>
+<footer>
+    <p>&copy; 2024 Stratford Robotics | All Rights Reserved</p>
+</footer>
+<script>
+    document.getElementById('create-account-btn').addEventListener('click', function() {
+        document.getElementById('create-account-form').style.display = 'block';
+    });
+</script>
 </body>
 </html>
