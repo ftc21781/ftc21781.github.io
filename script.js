@@ -90,7 +90,7 @@ function checkLoginStatus() {
     if (loggedIn === "true") {
         if (profileContainer) profileContainer.style.display = 'inline-block';
         if (loginLink) loginLink.style.display = 'none';
-        if (usernameDisplay) usernameDisplay.textContent = username; // Display the username correctly
+        if (usernameDisplay) usernameDisplay.textContent = "Logged in as " + username; // Display the username correctly
     } else {
         if (profileContainer) profileContainer.style.display = 'none';
         if (loginLink) loginLink.style.display = 'inline-block';

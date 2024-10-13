@@ -387,27 +387,15 @@ header .login-link:active {
     text-decoration: underline;    /* Add underline */
 }
 
-#profile-container {
-    display: flex; /* Aligns the username and profile picture horizontally */
-    align-items: center; /* Ensures they are vertically centered */
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
 #username-display {
-    margin-right: 10px; /* Adds spacing between the username and profile picture */
+    position: fixed;
+    top: 10px;
+    left: 10px;
     font-weight: bold;
-    color: white; /* To match the design */
+    color: black;
     font-size: 18px;
+    z-index: 1000; /* Ensures it stays above other elements */
 }
-
-#profile-photo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-
 
 #profile-dropdown {
     display: none;
