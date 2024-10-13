@@ -110,7 +110,7 @@ function handleLogin(e) {
         setCookie("username", username, 1); // Store username in a cookie
         window.location.href = 'index.html';
     } else {
-        alert('Invalid username/password');
+        alert('Invalid username/password.');
     }
 }
 
