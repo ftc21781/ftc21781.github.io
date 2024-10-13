@@ -397,5 +397,35 @@ header .login-link:active {
     z-index: 1000; /* Ensures it stays above other elements */
 }
 
+#profile-dropdown {
+    display: none;
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    right: 0;
+    z-index: 10;
+}
+
+#profile-dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+}
+
+#profile-dropdown li {
+    padding: 5px 10px;
+}
+
+#profile-dropdown li a {
+    text-decoration: none;
+    color: black; /* Change to your desired color */
+}
+
+#profile-dropdown li:hover {
+    background: #f0f0f0; /* Change hover background color */
+}
+
+
 
 

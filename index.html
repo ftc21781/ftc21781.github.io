@@ -104,13 +104,18 @@
         }
     </style>
 
-    <div id="profile-container" style="display: none;">
-        <img id="profile-picture" src="https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0=" alt="Profile Picture">
-        <div id="profile-dropdown">
-            <a href="updates.html" style="display: block; padding: 10px; text-decoration: none; color: black;">Updates</a>
-            <a id="logout-link" href="#" style="display: block; padding: 10px; text-decoration: none; color: black;">Logout</a>
-        </div>
+<div id="profile-container" style="display: none; position: absolute; top: 20px; right: 20px;">
+    <img id="profile-photo" src="https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=2048x2048&w=is&k=20&c=wMTCZdfcnfH8GFWojm54r2NRaHuoQZyv7JxrdQmchkc=" alt="Profile Icon" style="width: 50px; height: 50px; border-radius: 50%; cursor: pointer;">
+    <span id="username-display" style="color: white; margin-left: 10px;"></span>
+    <div id="profile-dropdown" style="display: none; position: absolute; background: white; border: 1px solid #ccc; border-radius: 5px; right: 0; z-index: 10;">
+        <ul style="list-style: none; margin: 0; padding: 10px;">
+            <li><a href="#" id="updates-link">Updates</a></li>
+            <li><a href="#" id="logout-link">Logout</a></li>
+        </ul>
     </div>
+</div>
+
+
 </head>
 <body>
 
