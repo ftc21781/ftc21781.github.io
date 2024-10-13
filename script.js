@@ -137,3 +137,47 @@ function handleCreateAccount(e) {
         alert('Invalid special code. Please try again.');
     }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    // ... existing code ...
+
+    // Handle profile picture click
+    const profilePhoto = document.getElementById('profile-photo');
+    if (profilePhoto) {
+        profilePhoto.addEventListener('click', function () {
+            const profileDropdown = document.getElementById('profile-dropdown');
+            profileDropdown.style.display = profileDropdown.style.display === 'block' ? 'none' : 'block';
+        });
+    }
+
+    // Check login status and update UI
+    checkLoginStatus();
+    // ... existing code ...
+});
+
+// Function to check login status
+function checkLoginStatus() {
+    const profileContainer = document.getElementById('profile-container');
+    const loginLink = document.querySelector('nav ul li a[href="login.html"]');
+    const usernameDisplay = document.getElementById('profile-username');
+
+    const loggedIn = getCookie("loggedIn");
+    const username = getCookie("username"); // Get the username from the cookie
+
+    if (loggedIn === "true") {
+        if (profileContainer) profileContainer.style.display = 'inline-block';
+        if (loginLink) loginLink.style.display = 'none';
+        if (usernameDisplay) usernameDisplay.textContent = username; // Display the username
+    } else {
+        if (profileContainer) profileContainer.style.display = 'none';
+        if (loginLink) loginLink.style.display = 'inline-block';
+    }
+}
+
+// Logout function
+function handleLogout() {
+    setCookie("loggedIn", "", -1);
+    setCookie("username", "", -1); // Clear the username cookie
+    window.location.href = 'index.html';
+}
+
