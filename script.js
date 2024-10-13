@@ -40,13 +40,14 @@ document.addEventListener('DOMContentLoaded', function () {
         loginForm.addEventListener('submit', handleLogin);
     }
 
-    // Handle profile picture click
-    const profilePicture = document.getElementById('profile-picture');
-    if (profilePicture) {
-        profilePicture.addEventListener('click', function () {
-            const profileDropdown = document.getElementById('profile-dropdown');
-            profileDropdown.style.display = profileDropdown.style.display === 'block' ? 'none' : 'block';
+    // Handle create account button click
+    const createAccountBtn = document.getElementById('create-account-btn');
+    const createAccountForm = document.getElementById('create-account-form');
+    if (createAccountBtn && createAccountForm) {
+        createAccountBtn.addEventListener('click', function () {
+            createAccountForm.style.display = 'block';
         });
+        createAccountForm.addEventListener('submit', handleCreateAccount);
     }
 
     // Handle logout link click
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function checkLoginStatus() {
     const profileContainer = document.getElementById('profile-container');
     const loginLink = document.querySelector('nav ul li a[href="login.html"]');
-    const usernameDisplay = document.getElementById('username-display'); // Add an element in your HTML for this
+    const usernameDisplay = document.getElementById('profile-username'); // Update for correct username element
 
     const loggedIn = getCookie("loggedIn");
     const username = getCookie("username"); // Get the username from the cookie
@@ -119,18 +120,6 @@ function getCookie(name) {
     return "";
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Handle create account button click
-    const createAccountBtn = document.getElementById('create-account-btn');
-    const createAccountForm = document.getElementById('create-account-form');
-    createAccountBtn.addEventListener('click', function () {
-        createAccountForm.style.display = 'block';
-    });
-
-    // Handle create account form submission
-    createAccountForm.addEventListener('submit', handleCreateAccount);
-});
-
 function handleCreateAccount(e) {
     e.preventDefault();
     const specialCode = document.getElementById('special-code').value;
@@ -141,43 +130,9 @@ function handleCreateAccount(e) {
     const teamSpecialCode = '1234';
 
     if (specialCode === teamSpecialCode) {
-        // Save the new account details (this is a simple example, in a real application you would save this to a database)
-        setCookie(newUsername, newPassword, 365);
+        setCookie(newUsername, newPassword, 365); // Save the new account details
         alert('Account created successfully. You can now log in.');
-        createAccountForm.style.display = 'none';
-    } else {
-        alert('Invalid special code. Please try again.');
-    }
-}
-
-function handleCreateAccount(e) {
-    e.preventDefault();
-    const specialCode = document.getElementById('special-code').value;
-    const newUsername = document.getElementById('new-username').value;
-    const newPassword = document.getElementById('new-password').value;
-
-    const teamSpecialCode = '1234';
-
-    if (specialCode === teamSpecialCode) {
-        setCookie('username', newUsername, 7);
-        setCookie('password', newPassword, 7);
-        alert('Account created successfully!');
-    } else {
-        alert('Invalid special code.');
-    }
-}
-
-function handleLogin(e) {
-    e.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    const storedUsername = getCookie('username');
-    const storedPassword = getCookie('password');
-
-    if (username === storedUsername && password === storedPassword) {
-        alert('Login successful!');
-        displayProfile(username);
+        document.getElementById('create-account-form').style.display = 'none'; // Hide the form
     } else {
         alert('Invalid special code. Please try again.');
     }

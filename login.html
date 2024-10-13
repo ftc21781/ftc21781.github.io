@@ -46,17 +46,18 @@
         </form>
     </section>
     <div id="profile-container" style="display: none;">
-        <img id="profile-photo" src="profile-photo-url.jpg" alt="Profile Photo" style="width: 50px; height: 50px; border-radius: 50%;">
+        <img id="profile-photo" src="https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=2048x2048&w=is&k=20&c=wMTCZdfcnfH8GFWojm54r2NRaHuoQZyv7JxrdQmchkc=" alt="Profile Photo" style="width: 50px; height: 50px; border-radius: 50%;">
         <span id="profile-username"></span>
+        <a href="#" id="logout-link">Logout</a>
     </div>
 </main>
-<footer>
-    <p>&copy; 2024 Stratford Robotics | All Rights Reserved</p>
-</footer>
 <script>
+    // Show the create account form when the button is clicked
     document.getElementById('create-account-btn').addEventListener('click', function() {
         document.getElementById('create-account-form').style.display = 'block';
     });
+
+    // Handle form submissions and other login-related functionality in the external script
 </script>
 </body>
 </html>
