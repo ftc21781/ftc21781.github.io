@@ -388,17 +388,17 @@ header .login-link:active {
 }
 
 #profile-container {
-    display: flex; /* Ensures elements inside align in a row */
-    align-items: center; /* Vertically center the username and profile picture */
+    display: flex; /* Aligns the username and profile picture horizontally */
+    align-items: center; /* Ensures they are vertically centered */
     position: absolute;
     top: 20px;
     right: 20px;
 }
 
 #username-display {
-    margin-right: 10px; /* Space between the username and profile picture */
+    margin-right: 10px; /* Adds spacing between the username and profile picture */
     font-weight: bold;
-    color: black;
+    color: white; /* To match the design */
     font-size: 18px;
 }
 
