@@ -1,3 +1,101 @@
+document.addEventListener('DOMContentLoaded', function () {
+    // Create the custom cursor element and append it to the body
+    const customCursor = document.createElement('div');
+    customCursor.classList.add('custom-cursor');
+    document.body.appendChild(customCursor);
+
+    // Move the custom cursor based on mouse movement
+    document.addEventListener('mousemove', function (e) {
+        customCursor.style.left = `${e.clientX + window.scrollX}px`;
+        customCursor.style.top = `${e.clientY + window.scrollY}px`;
+    });
+
+    // Hide the custom cursor when leaving the window
+    document.addEventListener('mouseleave', function () {
+        customCursor.style.display = 'none';
+    });
+
+    // Show the custom cursor when entering the window
+    document.addEventListener('mouseenter', function () {
+        customCursor.style.display = 'block';
+    });
+
+    // Detect when the mouse hovers over a link, button, or input
+    const interactiveElements = document.querySelectorAll('a, button, input');
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', function () {
+            customCursor.classList.add('pulsate'); // Add pulsate animation
+        });
+        element.addEventListener('mouseleave', function () {
+            customCursor.classList.remove('pulsate'); // Remove pulsate animation
+        });
+    });
+
+    // Check login status and update UI
+    checkLoginStatus();
+
+    // Handle login form submission
+    const loginForm = document.getElementById('login-form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', handleLogin);
+    }
+
+    // Handle profile picture click
+    const profilePicture = document.getElementById('profile-picture');
+    if (profilePicture) {
+        profilePicture.addEventListener('click', function () {
+            const profileDropdown = document.getElementById('profile-dropdown');
+            profileDropdown.style.display = profileDropdown.style.display === 'block' ? 'none' : 'block';
+        });
+    }
+
+    // Handle logout link click
+    const logoutLink = document.getElementById('logout-link');
+    if (logoutLink) {
+        logoutLink.addEventListener('click', handleLogout);
+    }
+});
+
+function checkLoginStatus() {
+    const profileContainer = document.getElementById('profile-container');
+    const loginLink = document.querySelector('nav ul li a[href="login.html"]');
+    const usernameDisplay = document.getElementById('username-display'); // Add an element in your HTML for this
+
+    const loggedIn = getCookie("loggedIn");
+    const username = getCookie("username"); // Get the username from the cookie
+
+    if (loggedIn === "true") {
+        if (profileContainer) profileContainer.style.display = 'inline-block';
+        if (loginLink) loginLink.style.display = 'none';
+        if (usernameDisplay) usernameDisplay.textContent = `Logged in as: ${username}`; // Display the username
+    } else {
+        if (profileContainer) profileContainer.style.display = 'none';
+        if (loginLink) loginLink.style.display = 'inline-block';
+    }
+}
+
+function handleLogin(e) {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const storedPassword = getCookie(username);
+
+    if (storedPassword && storedPassword === password) {
+        alert('Login successful.');
+        setCookie("loggedIn", "true", 1);
+        setCookie("username", username, 1); // Store username in a cookie
+        window.location.href = 'index.html';
+    } else {
+        alert('Invalid username/password');
+    }
+}
+
+function handleLogout() {
+    setCookie("loggedIn", "", -1);
+    setCookie("username", "", -1); // Clear the username cookie
+    window.location.href = 'index.html';
+}
+
 function setCookie(name, value, days) {
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -19,6 +117,37 @@ function getCookie(name) {
         }
     }
     return "";
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Handle create account button click
+    const createAccountBtn = document.getElementById('create-account-btn');
+    const createAccountForm = document.getElementById('create-account-form');
+    createAccountBtn.addEventListener('click', function () {
+        createAccountForm.style.display = 'block';
+    });
+
+    // Handle create account form submission
+    createAccountForm.addEventListener('submit', handleCreateAccount);
+});
+
+function handleCreateAccount(e) {
+    e.preventDefault();
+    const specialCode = document.getElementById('special-code').value;
+    const newUsername = document.getElementById('new-username').value;
+    const newPassword = document.getElementById('new-password').value;
+
+    // Replace 'teamSpecialCode' with the actual special code for team members
+    const teamSpecialCode = '1234';
+
+    if (specialCode === teamSpecialCode) {
+        // Save the new account details (this is a simple example, in a real application you would save this to a database)
+        setCookie(newUsername, newPassword, 365);
+        alert('Account created successfully. You can now log in.');
+        createAccountForm.style.display = 'none';
+    } else {
+        alert('Invalid special code. Please try again.');
+    }
 }
 
 function handleCreateAccount(e) {
@@ -50,20 +179,6 @@ function handleLogin(e) {
         alert('Login successful!');
         displayProfile(username);
     } else {
-        alert('Invalid username or password.');
+        alert('Invalid special code. Please try again.');
     }
 }
-
-function displayProfile(username) {
-    const profileContainer = document.getElementById('profile-container');
-    const profileUsername = document.getElementById('profile-username');
-    profileUsername.textContent = username;
-    profileContainer.style.display = 'block';
-}
-
-document.getElementById('create-account-form').addEventListener('submit', handleCreateAccount);
-document.getElementById('login-form').addEventListener('submit', handleLogin);
-
-document.getElementById('create-account-btn').addEventListener('click', function() {
-    document.getElementById('create-account-form').style.display = 'block';
-});
