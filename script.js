@@ -149,7 +149,7 @@ function handleCreateAccount(e) {
     const newPassword = document.getElementById('new-password').value;
 
     // Replace 'teamSpecialCode' with the actual special code for team members
-    const teamSpecialCode = '1234';
+    const teamSpecialCode = '5687';
 
     if (specialCode === teamSpecialCode) {
         setCookie(newUsername, newPassword, 365); // Save the new account details
