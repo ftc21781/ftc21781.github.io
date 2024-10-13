@@ -1,46 +1,3 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Create the custom cursor element and append it to the body
-    const customCursor = document.createElement('div');
-    customCursor.classList.add('custom-cursor');
-    document.body.appendChild(customCursor);
-
-    // Move the custom cursor based on mouse movement
-    document.addEventListener('mousemove', function (e) {
-        customCursor.style.left = `${e.clientX + window.scrollX}px`;
-        customCursor.style.top = `${e.clientY + window.scrollY}px`;
-    });
-
-    // Hide the custom cursor when leaving the window
-    document.addEventListener('mouseleave', function () {
-        customCursor.style.display = 'none';
-    });
-
-    // Show the custom cursor when entering the window
-    document.addEventListener('mouseenter', function () {
-        customCursor.style.display = 'block';
-    });
-
-    // Detect when the mouse hovers over a link, button, or input
-    const interactiveElements = document.querySelectorAll('a, button, input');
-    interactiveElements.forEach(element => {
-        element.addEventListener('mouseenter', function () {
-            customCursor.classList.add('pulsate'); // Add pulsate animation
-        });
-        element.addEventListener('mouseleave', function () {
-            customCursor.classList.remove('pulsate'); // Remove pulsate animation
-        });
-    });
-
-    // Check login status and update UI
-    checkLoginStatus();
-
-    // Handle login form submission
-    const loginForm = document.getElementById('login-form');
-    if (loginForm) {
-        loginForm.addEventListener('submit', handleLogin);
-    }
-});
-
 function setCookie(name, value, days) {
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -106,3 +63,7 @@ function displayProfile(username) {
 
 document.getElementById('create-account-form').addEventListener('submit', handleCreateAccount);
 document.getElementById('login-form').addEventListener('submit', handleLogin);
+
+document.getElementById('create-account-btn').addEventListener('click', function() {
+    document.getElementById('create-account-form').style.display = 'block';
+});
