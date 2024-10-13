@@ -69,12 +69,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Handle updates link click (you can replace this with your actual logic)
+    // Handle updates link click to route to updates.html
     const updatesLink = document.getElementById('updates-link');
     if (updatesLink) {
         updatesLink.addEventListener('click', function(e) {
             e.preventDefault();
-            alert("This is where updates would be shown."); // Replace with actual logic
+            window.location.href = 'updates.html'; // Redirect to updates.html
         });
     }
 });
